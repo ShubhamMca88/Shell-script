@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Variables
+chmod 777 "/home/shubham/Documents/Shell script/git_to_github.sh"
 REPO_DIR="/home/shubham/Documents/Shell\ script"
 COMMIT_MESSAGE="update"
 BRANCH_NAME="main"

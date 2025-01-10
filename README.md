@@ -119,6 +119,10 @@ chmod +x script.sh
 crontab -e       # for add cron jobs 
 crontab -l       # check list jobs 
 crontab -r       # remove the jobs 
+
+sudo service cron status        # verify the cron service is running
+sudo service cron start         # if the cron service is not running , start it.
+grep CRON /var/log/syslog       # check the cron logs for any errors.
 ```
 ## Shell Scripting Techniques
 ### 1. Redirection
