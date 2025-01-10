@@ -2,7 +2,7 @@
 
 # Variables
 REPO_DIR="/home/shubham/Documents/Shell script"
-COMMIT_MESSAGE="Your commit message"
+COMMIT_MESSAGE="update"
 BRANCH_NAME="main"
 
 # Navigate to the repository directory
