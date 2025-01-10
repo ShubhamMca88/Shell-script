@@ -8,6 +8,12 @@ BRANCH_NAME="main"
 # Ensure the repository directory path is quoted to handle spaces
 cd "$REPO_DIR" || { echo "Failed to navigate to repository directory: $REPO_DIR"; exit 1; }
 
+# Check for uncommitted changes or untracked files
+if git diff-index --quiet HEAD -- && [ -z "$(git ls-files --others --exclude-standard)" ]; then
+    echo "No changes detected. Nothing to commit."
+    exit 0
+fi
+
 # Add changes to git
 git add .
 
