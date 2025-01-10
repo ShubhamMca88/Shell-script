@@ -97,4 +97,20 @@ aws eks create-cluster --name my-cluster --role-arn arn:aws:iam::123456789012:ro
 aws eks delete-cluster --name my-cluster
 ```
 
+## Key Pair Commands
+
+```sh
+# List all key pairs
+aws ec2 describe-key-pairs
+
+# Create a new key pair
+aws ec2 create-key-pair --key-name my-key-pair
+
+# Delete a key pair
+aws ec2 delete-key-pair --key-name my-key-pair
+
+# Describe a key pair
+aws ec2 describe-key-pairs --key-name my-key-pair
+```
+
 For more detailed information and additional commands, refer to the [AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/).
