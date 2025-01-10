@@ -161,31 +161,38 @@ grep CRON /var/log/syslog       # check the cron logs for any errors.
 ## Example Shell Script
 ```bash
 #!/bin/bash
-# A script to organize files by extension
 
-set -e  # Exit on error
-set -u  # Treat unset variables as errors
+# Variables
+REPO_DIR="/home/shubham/Documents/Shell script"
+COMMIT_MESSAGE="update"
+BRANCH_NAME="main"
 
-organize_files() {
-    local dir="$1"
-    mkdir -p "$dir/sorted"
+# Ensure the repository directory path is quoted to handle spaces
+cd "$REPO_DIR" || { echo "Failed to navigate to repository directory: $REPO_DIR"; exit 1; }
 
-    for file in "$dir"/*; do
-        if [[ -f "$file" ]]; then
-            ext="${file##*.}"
-            mkdir -p "$dir/sorted/$ext"
-            mv "$file" "$dir/sorted/$ext/"
-        fi
-    done
-}
+# Check for uncommitted changes or untracked files
+if git diff-index --quiet HEAD -- && [ -z "$(git ls-files --others --exclude-standard)" ]; then
+    echo "No changes detected. Nothing to commit."
+    exit 0
+fi
 
-main() {
-    local target_dir="${1:-.}"
-    organize_files "$target_dir"
-    echo "Files organized successfully!"
-}
+# Add changes to git
+git add .
 
-main "$@"
+# Check if a commit message is passed as an argument
+if [ -z "$1" ]; then
+    git commit -m "$COMMIT_MESSAGE"
+else
+    git commit -m "$1"
+fi
+
+# Push changes to GitHub
+git push origin "$BRANCH_NAME"
+
+# Clear the screen
+clear
+
+echo "Changes pushed to GitHub successfully."
 ```
 ## Tips and Best Practices
 
