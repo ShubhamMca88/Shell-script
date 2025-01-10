@@ -59,11 +59,23 @@ aws ec2 terminate-instances --instance-ids i-1234567890abcdef0
 # List all IAM users
 aws iam list-users
 
+# List all IAM roles
+aws iam list-roles
+
 # Create a new IAM user
 aws iam create-user --user-name my-user
 
 # Delete an IAM user
 aws iam delete-user --user-name my-user
+
+# List access keys for the current IAM user
+aws iam list-access-keys
+
+# Create a new access key for the current IAM user
+aws iam create-access-key
+
+# Delete an access key for the current IAM user
+aws iam delete-access-key --access-key-id ACCESS_KEY_ID
 
 # Attach a policy to an IAM user
 aws iam attach-user-policy --user-name my-user --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
