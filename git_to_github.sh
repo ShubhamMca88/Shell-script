@@ -1,24 +1,30 @@
 #!/bin/bash
 
 # Variables
-REPO_DIR="/home/shubham/Documents/Shell script"
+REPO_DIR="/home/shubham/Documents/Shell\ script"
 COMMIT_MESSAGE="update"
 BRANCH_NAME="main"
 
 # Navigate to the repository directory
-cd $REPO_DIR
+cd "$REPO_DIR"
 
 # Add changes to git
 git add .
 
-# Commit changes
-git commit -m "$COMMIT_MESSAGE"
+# if commit message is not provided as an argument, then open the default editor
+if [ -z "$1" ]
+then
+    git commit -m "$COMMIT_MESSAGE"
+else
+    git commit -m "$1"
+fi
 
 # Push changes to GitHub
 git push origin $BRANCH_NAME
 
 # clear the screen
 clear
+
 
 
 # # Make the script executable
