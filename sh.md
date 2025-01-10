@@ -154,3 +154,49 @@ crontab -r       # remove the jobs
         echo "Command failed!" >&2
     fi
     ```
+## Example Shell Script
+```bash
+#!/bin/bash
+# A script to organize files by extension
+
+set -e  # Exit on error
+set -u  # Treat unset variables as errors
+
+organize_files() {
+    local dir="$1"
+    mkdir -p "$dir/sorted"
+
+    for file in "$dir"/*; do
+        if [[ -f "$file" ]]; then
+            ext="${file##*.}"
+            mkdir -p "$dir/sorted/$ext"
+            mv "$file" "$dir/sorted/$ext/"
+        fi
+    done
+}
+
+main() {
+    local target_dir="${1:-.}"
+    organize_files "$target_dir"
+    echo "Files organized successfully!"
+}
+
+main "$@"
+```
+## Tips and Best Practices
+
+### Use set Options:
+- set -e: Exit on errors.
+- set -u: Treat unset variables as errors.
+
+### Use Functions:
+- Encapsulate repetitive tasks.
+
+### Error Messages to stderr:
+- Use >&2 for error messages.
+
+### Validate Inputs:
+- Always check if files/directories exist before accessing them.
+
+### Document Your Code:
+- Add comments and usage information for maintainability.
