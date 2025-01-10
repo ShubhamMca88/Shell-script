@@ -27,7 +27,7 @@ clear
 echo "Changes pushed to GitHub successfully."
 
 # Make the script executable (optional)
-# chmod +x git_to_github.sh
+# chmod +x git_to_github.sh       # 777 for all
 
 # Run the script (optional)
 # ./git_to_github.sh
