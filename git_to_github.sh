@@ -17,6 +17,9 @@ git commit -m "$COMMIT_MESSAGE"
 # Push changes to GitHub
 git push origin $BRANCH_NAME
 
+# clear the screen
+clear
+
 
 # # Make the script executable
 # chmod +x git_to_github.sh
