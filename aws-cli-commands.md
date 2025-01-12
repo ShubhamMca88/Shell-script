@@ -81,6 +81,36 @@ aws iam delete-access-key --access-key-id ACCESS_KEY_ID
 aws iam attach-user-policy --user-name my-user --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
 ```
 
+## ECR Commands
+```sh
+# List all ECR repositories
+aws ecr describe-repositories
+
+# List all ECR repositories in a specific region
+aws ecr describe-repositories --region your-region
+
+# List all ECR repositories with a specific filter
+aws ecr describe-repositories --repository-names my-repo
+
+# Log in to ECR
+aws ecr get-login-password --region your-region | docker login --username AWS --password-stdin your-account-id.dkr.ecr.your-region.amazonaws.com
+
+# Create a new ECR repository
+aws ecr create-repository --repository-name my-repo
+
+# Delete an ECR repository
+aws ecr delete-repository --repository-name my-repo
+
+# List images in an ECR repository
+aws ecr list-images --repository-name my-repo
+
+# Describe an image in an ECR repository
+aws ecr describe-images --repository-name my-repo --image-ids imageTag=latest
+
+# Delete an image from an ECR repository
+aws ecr batch-delete-image --repository-name my-repo --image-ids imageTag=latest
+```
+
 ## EKS Commands
 
 ```sh
