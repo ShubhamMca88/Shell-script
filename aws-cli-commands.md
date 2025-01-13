@@ -125,6 +125,7 @@ aws eks create-cluster --name my-cluster --role-arn arn:aws:iam::123456789012:ro
 
 # Delete an EKS cluster
 aws eks delete-cluster --name my-cluster
+
 ```
 
 ## Key Pair Commands
