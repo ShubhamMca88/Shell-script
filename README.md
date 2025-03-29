@@ -115,6 +115,7 @@ cat file.text
 #12. Change file permissions.
 chmod +x script.sh
 
+
 #13. Schedule jobs.(crontab)
 crontab -e       # for add cron jobs 
 crontab -l       # check list jobs 
