@@ -8,6 +8,21 @@ Below are some commonly used AWS CLI commands for managing AWS resources.
 # Configure AWS CLI
 aws configure
 
+#View All Configured Profiles
+aws configure list
+
+#Manually View Configuration Files
+cat ~/.aws/credentials
+
+# all user list
+cat ~/.aws/config
+
+#Check Which Profile is in Use
+aws configure list --profile your_profile_name
+
+#Go back to the default profileva
+unset AWS_PROFILE
+
 # List all available AWS services
 aws services list
 
