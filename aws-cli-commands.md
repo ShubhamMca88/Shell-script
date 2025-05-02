@@ -26,6 +26,19 @@ unset AWS_PROFILE
 # List all available AWS services
 aws services list
 
+# Use AWS CLI to clear config
+aws configure set aws_access_key_id "" --profile default
+aws configure set aws_secret_access_key "" --profile default
+aws configure set region "" --profile default
+
+# Delete the config and credentials files manually
+rm ~/.aws/credentials
+rm ~/.aws/config
+
+# Edit files manually
+nano ~/.aws/credentials
+nano ~/.aws/config
+
 # Get help for any AWS command
 aws help
 ```
